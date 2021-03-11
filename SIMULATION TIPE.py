@@ -5,7 +5,7 @@ import scipy.optimize as resol
 from scipy.integrate import odeint
 import random
 import scipy.fft as fft
-
+from math import pi
 
 
 ## COMMENTAIRE IMPORTANT (POUR OTHMANE NOUMANE)
@@ -165,8 +165,14 @@ def RESOLUTION(CIx,CIv,m0,k,f,w,a,n):
 
 
 def RESOLUTION2(CIx,CIv,m0,k,f,w,a,tmax):
-    # Initialisation : CIx, CIv conditions initiales de position et de vitesse, m0 sa masse initiale, k constante du ressort, f coefficient de frottement, w vitesse angulaire, périmètre de la bande, tmax le temps de la simulation
-    # Sortie : graphique de la vitesse et de la position du solide ( VERT pour VITESSE, VIOLET pour position) ainsi que leur FFT respectives
+    ''' Initialisation : CIx, 
+                        CIv conditions initiales de position et de vitesse,
+                        m0 sa masse initiale, k constante du ressort, 
+                        f coefficient de frottement, w vitesse angulaire, 
+                        a périmètre de la bande, 
+                        tmax le temps de la simulation
+        Sortie : graphique de la vitesse et de la position du solide ( VERT pour VITESSE, VIOLET pour position) ainsi que leur FFT respectives
+    '''
     def EQUA(trajectoire,t):
         x,dx = trajectoire
         return (dx,ddx(x,dx,t))
